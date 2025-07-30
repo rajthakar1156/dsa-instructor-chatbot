@@ -1,14 +1,31 @@
-# Run and deploy your AI Studio app
+# 🤖 DSA Instructor Chatbot
 
-This contains everything you need to run your app locally.
+Your personal AI-powered mentor for mastering Data Structures and Algorithms (DSA)! This intelligent chatbot helps users understand DSA concepts, solve problems, and prepare for coding interviews — all in a friendly and interactive way.
 
-## Run Locally
+🔗 **Live Demo**: [dsa-instructor-chatbot.vercel.app](https://dsa-instructor-chatbot-xi.vercel.app/)
 
-**Prerequisites:**  Node.js
+## 🚀 Features
+
+- 📚 Explains DSA concepts in a simple and clear way
+- 🧠 Solves coding problems with step-by-step solutions
+- 💬 Chat-based interface for interactive learning
+- 🛠️ Code snippets in Python, C++, and Java
+- 🏆 Helps prepare for technical interviews
+
+## 🛠️ Tech Stack
+
+- Frontend: React.js
 
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+## 📦 Getting Started
+
+```bash
+# Clone the repo
+git clone https://github.com/yourusername/dsa-instructor-chatbot.git
+cd dsa-instructor-chatbot
+
+# Install dependencies
+npm install
+
+# Run the app locally
+npm run dev
