@@ -1,4 +1,3 @@
-
 import { GoogleGenAI } from "@google/genai";
 import type { Message } from '../types';
 
@@ -68,6 +67,7 @@ export const generateTitle = async (firstMessage: string): Promise<string> => {
         return title || "New Chat";
     } catch (error) {
         console.error("Error generating title:", error);
-        return "New Chat";
+        // Re-throw the error to be handled by the calling component
+        throw error;
     }
 };

@@ -11,12 +11,15 @@ interface MessageProps {
 const renderer = new marked.Renderer();
 const originalCodeRenderer = renderer.code.bind(renderer);
 
-
-renderer.code = (code: string, lang: string | undefined, isEscaped: boolean) => {
-    const rendered = originalCodeRenderer(code, lang, isEscaped);
+// We override the `code` renderer to add a copy button to code blocks.
+// By not providing an explicit type for `token`, we allow TypeScript to infer it from
+// the `renderer.code` property, which correctly solves potential type mismatches.
+renderer.code = (token) => {
+    const rendered = originalCodeRenderer(token);
     // Added relative and group classes for button positioning
     return `<div class="code-block-wrapper relative group">${rendered}<button class="copy-button absolute top-2 right-2 bg-slate-700 text-slate-200 px-2 py-1 rounded-md text-xs opacity-0 group-hover:opacity-100 transition-opacity">Copy</button></div>`;
 };
+
 marked.setOptions({
   renderer,
   gfm: true,
@@ -67,7 +70,7 @@ const MessageComponent: React.FC<MessageProps> = ({ message, isLoading = false }
       </div>
       
       {/* Message Bubble */}
-      <div className={`max-w-xl lg:max-w-3xl px-5 py-3 rounded-2xl ${isUser ? 'bg-primary text-white rounded-br-none order-1' : 'bg-surface text-text-secondary rounded-bl-none order-2'}`}>
+      <div className={`w-fit max-w-[85%] sm:max-w-xl lg:max-w-3xl px-4 py-3 rounded-2xl ${isUser ? 'bg-primary text-white rounded-br-none order-1' : 'bg-surface text-text-secondary rounded-bl-none order-2'}`}>
         {isLoading && !message.content ? (
           <PulsingDotsIcon />
         ) : (

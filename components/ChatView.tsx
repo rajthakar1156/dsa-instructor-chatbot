@@ -18,7 +18,7 @@ const WelcomeScreen: React.FC<{ onPromptClick: (prompt: string) => void }> = ({ 
     return (
         <div className="flex-1 flex flex-col items-center justify-center text-center p-4">
             <BotIcon className="w-16 h-16 text-primary mb-4" />
-            <h1 className="text-4xl font-bold text-text-primary mb-2">DSA Instructor</h1>
+            <h1 className="text-3xl sm:text-4xl font-bold text-text-primary mb-2">DSA Instructor</h1>
             <p className="text-text-secondary max-w-md">
                 Start your learning journey. Ask me anything about Data Structures and Algorithms.
             </p>
@@ -82,7 +82,7 @@ const ChatView: React.FC<ChatViewProps> = ({ chatSession, onSendMessage }) => {
                 onSendMessage(prompt);
             }
         }}/>
-        <div className="p-4 border-t border-surface">
+        <div className="p-2 sm:p-4 border-t border-surface">
             {/* Show input form on welcome screen too */}
             <form onSubmit={handleSend} className="max-w-3xl mx-auto flex items-start bg-surface rounded-xl p-2 pr-3">
               <textarea
@@ -111,7 +111,7 @@ const ChatView: React.FC<ChatViewProps> = ({ chatSession, onSendMessage }) => {
 
   return (
     <div className="flex-1 flex flex-col bg-background overflow-hidden">
-        <div className="flex-1 overflow-y-auto p-6">
+        <div className="flex-1 overflow-y-auto p-3 sm:p-6">
             <div className="max-w-4xl mx-auto space-y-8">
                 {chatSession.messages.map((msg, index) => (
                 <MessageComponent 
@@ -123,7 +123,7 @@ const ChatView: React.FC<ChatViewProps> = ({ chatSession, onSendMessage }) => {
                 <div ref={messagesEndRef} />
             </div>
         </div>
-      <div className="p-4 border-t border-surface">
+      <div className="p-2 sm:p-4 border-t border-surface">
         <form onSubmit={handleSend} className="max-w-3xl mx-auto flex items-start bg-surface rounded-xl p-2 pr-3">
           <textarea
             ref={textareaRef}
